@@ -15,24 +15,34 @@ class Pokidex extends Component {
   }
 
   render() {
+    const pokeNames = this.state.pokidex.map(pokemon => pokemon.name);
     return (
-      <div>
-      {this.state.pokidex.data.map(pokemon => (
-        <p>{pokemon.name}</p>
+      <div className="pokemon">
+      {this.state.pokidex.length > 0 &&
+        this.state.pokidex.map(pokemon => (
+        <PokemonCard
+          name={pokemon.name}
+          img={pokemon.image}
+          types={pokemon.types}
+        />
       ))}
       </div>
     );
   }
 
-  fetchPokidex() {
-    axios.get("https://intern-pokedex.myriadapps.com/api/v1/pokemon")
-    .then((res) => {
-      console.log(res);
-      this.setState({ pokidex: res.data });
-      console.log(this.state);
-    });
+  async fetchPokidex() {
+    let next = "https://intern-pokedex.myriadapps.com/api/v1/pokemon?page=1";
+    let res = "";
+    while(next != null) {
+      res = await axios.get(next);
+      next = res.data.links.next;
+      this.setState({
+        pokidex: [...this.state.pokidex, ...res.data.data]
+      });
+    }
   }
 };
+
 
 Pokidex.propTypes = {
 

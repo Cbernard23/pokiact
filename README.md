@@ -1,5 +1,5 @@
 [![CircleCI](https://circleci.com/gh/Cbernard23/pokiact.svg?style=svg)](https://circleci.com/gh/Cbernard23/pokiact)
-
+[![codecov](https://codecov.io/gh/Cbernard23/pokiact/branch/master/graph/badge.svg)](https://codecov.io/gh/Cbernard23/pokiact)
 
 ### API Documentation
 

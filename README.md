@@ -1,3 +1,6 @@
+[![CircleCI](https://circleci.com/gh/Cbernard23/pokiact.svg?style=svg)](https://circleci.com/gh/Cbernard23/pokiact)
+
+
 ### API Documentation
 
 https://intern-pokedex.myriadapps.com/docs/
